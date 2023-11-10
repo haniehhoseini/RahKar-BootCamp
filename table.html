@@ -1,7 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <style>
+            body {
+                direction: auto;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                font-size: 25px;
+                height: 40px;
+            }
+            table tr:first-child {
+                background-color: #96D4D4;
+                text-align: left;
+                padding: 20px;
+            }
+        </style>
+    </head>
     <body>
-        
+        <table style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Mobile</th>
+                    <th>Age</th>
+                </tr>   
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td rowspan="2"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="2" colspan="2"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tfoot>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tfoot>
+            </thead>
+        </table>
     </body>
 </html>
