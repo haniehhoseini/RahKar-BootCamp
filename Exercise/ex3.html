@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function power2(number) {
+            number *= number;
+            return number;
+        }
+        function power3(number) {
+            var power = power2(number);
+            number *= power;
+            return number;
+        }  
+        function radical(number) {
+            let guess = number / 2;
+            for (let i = 0; i < 10; i++) {
+                guess = 0.5 * (guess + number / guess);
+            }
+            return guess;
+        }
+        function GetNumber(number) {
+            console.log("Power-2:" + " " + power2(number));
+            console.log("Power-3:" + " " + power3(number));
+            console.log("Radical:" + " " + radical(number));
+        }
+        GetNumber(10);
+    </script>
+</html>
