@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function fiveNumber (ArrayNumbers) {
+            var negativeNumber = 0;
+            for (let i = 0; i < ArrayNumbers.length ; i++) {
+                if (ArrayNumbers[i] < 0) {
+                    negativeNumber +=ArrayNumbers[i];
+                }else{
+                    console.log(ArrayNumbers[i]);
+                }
+            }
+            console.log("sumNegative:" + negativeNumber);
+        }
+        const numbers = [ 10 , -7 , 5 ,3, -10];
+        fiveNumber(numbers);
+    </script>
+</html>
