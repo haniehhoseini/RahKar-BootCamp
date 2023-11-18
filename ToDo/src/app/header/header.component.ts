@@ -1,16 +1,16 @@
-import { Component , Output ,EventEmitter} from '@angular/core';
+import { Component , Output ,EventEmitter, ChangeDetectorRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BodyComponent } from '../body/body.component';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule , BodyComponent],
+  imports: [CommonModule ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
- 
+  
   textColor : string = 'blue';
 
   list : any = '';
@@ -27,7 +27,8 @@ export class HeaderComponent {
   }
   OnClick(){
     this.mylist.emit(this.list);
-    this.menuListItem.push(this.list); 
+    this.menuListItem.push(this.list);
+     
   }
 
   deleteTodo(index: number):void {
