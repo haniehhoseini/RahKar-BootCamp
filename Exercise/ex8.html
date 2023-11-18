@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function smaller() {
+            var temp = 0;
+            var sum = 0;
+            for (let i = 0; i <= 300; i++) {
+                if (i % 3 == 0 && i % 7 == 0) {
+                    console.log(i);
+                    temp++;
+                    sum += i;
+                }
+            }
+            console.log("count:"+temp);
+            console.log("sum:"+sum);
+        }
+        smaller();
+    </script>
+</html>
