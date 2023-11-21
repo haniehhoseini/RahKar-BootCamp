@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
     <script>
-        
+        function unitsDigit() {
+            for (let number = 100; number < 999; number++) {
+                let digit3 = Math.floor(number % 10);
+                if (digit3 === 4) {
+                   let digit1 = Math.floor(number / 100);
+                    let digit2 = Math.floor((number % 100) / 10);
+                 
+                
+                    let sum =digit1 + digit2 + digit3; 
+                    console.log(number);
+                    console.log(sum);
+                }
+                 
+            }   
+        }
+        unitsDigit();
     </script>
 </html>
