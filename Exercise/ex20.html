@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function divisor(number) {
+            let temp = 0;
+           for (let i = 0; i <= number; i++) {
+                if (number % i == 0) {
+                    temp +=i;
+
+                }
+            
+            } 
+            return temp;
+        }
+
+        for (let i = 1; i <= 999; i++){
+            let result = divisor(i);
+            if (result == 2*i) {
+                console.log(i);
+            }
+        }
+        
+    </script>
+</html>
