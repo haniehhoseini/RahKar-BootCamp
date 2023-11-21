@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function getNumber(number) {
+            let digit1 = Math.floor(number / 100);
+            let digit2 = Math.floor((number % 100) / 10);
+            let digit3 = Math.floor(number % 10); 
+            console.log("Units: "+digit1+" Tens: "+digit2+" Hundreds: "+digit3);
+        }
+        getNumber(234);
+    </script>
+</html>
