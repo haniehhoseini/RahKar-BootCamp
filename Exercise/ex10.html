@@ -5,19 +5,19 @@
             result = number*number*number;
             return result;
         }
-        function findAndSum(number) {
-            
-            let digit1 = Math.floor(number / 100);
-            let digit2 = Math.floor((number % 100) / 10);
-            let digit3 = Math.floor(number % 10); 
-            
-            let sum =Tavan3(digit1) + Tavan3(digit2) + Tavan3(digit3);
-               
-            if (sum === number) {
-                console.log(number);
+        function findAndSum() {
+            for (let number = 100; number < 999; number++) {
+                let digit1 = Math.floor(number / 100);
+                let digit2 = Math.floor((number % 100) / 10);
+                let digit3 = Math.floor(number % 10); 
+                
+                let sum =Tavan3(digit1) + Tavan3(digit2) + Tavan3(digit3);
+                
+                if (sum === number) {
+                    console.log(number);
+                }    
             }
-            
         }
-        findAndSum(153);
+        findAndSum();
     </script>
 </html>
