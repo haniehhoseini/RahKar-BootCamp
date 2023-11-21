@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function NumberOfDifits(number) {
+            let counter = 0;
+            while (number != 0 ) {
+                number = Math.floor(number / 10);
+                console.log(number);
+                counter++;
+            }
+            console.log(counter);
+        }
+        NumberOfDifits(100000000000);
+    </script>
+</html>
