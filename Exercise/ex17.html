@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <script>
+
+        function defineNumber() {
+
+            let firstHalf;
+            let secondHalf;
+            let result;
+
+            for (let number = 1000; number < 9999; number++) {
+                firstHalf = Math.floor(number / 100);
+                secondHalf = Math.floor(number % 100); 
+                result = condition(firstHalf, secondHalf)
+                if (result == number) {
+                    console.log(number);
+                }
+                
+            }
+        }
+
+
+        function condition(first , second) {
+            let sum = first + second;
+            let multiple = sum*sum;
+            return multiple;
+        }
+
+        defineNumber();
+
+    </script>
+</html>
