@@ -12,13 +12,17 @@
             return temp;
         }
         
-        for (let i = 10; i <= 1500; i++){
-            let sumDivisorsA = divisor(i);
-            let sumDivisorsSumA = divisor(sumDivisorsA);
+        function sameDivisor() {
+           for (let i = 10; i <= 1500; i++){
+                let sumDivisorsA = divisor(i);
+                let sumDivisorsSumA = divisor(sumDivisorsA);
 
-            if (i === sumDivisorsSumA && sumDivisorsA !== i ) {
-                console.log(i);
-            }
+                if (i === sumDivisorsSumA && sumDivisorsA !== i ) {
+                    console.log(i);
+                }
+            } 
         }
+
+        sameDivisor();
     </script>
 </html>
