@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function getNumber() {
+           
+            let temp = [];
+            for (let number = 1000; number < 9999; number++) {
+                let numberString = number.toString();
+               
+                if (parseInt(numberString[0])+parseInt(numberString[3])===
+                 parseInt(numberString[1])+parseInt(numberString[2])) {
+                    console.log(number);
+                } 
+            }
+        }
+        getNumber();
+    </script>
+</html>
