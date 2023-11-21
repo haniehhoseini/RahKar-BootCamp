@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <script>
+         function isPrime(number) { 
+            if (number < 2) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        for (let i = 100; i < 999; i++) {
+            let Hundreds = Math.floor(i/100);
+            let Ones = Math.floor(i%10);
+            if (isPrime(Hundreds) && isPrime(Ones)) {
+                console.log(i);
+            }
+       }
+    </script>
+</html>
