@@ -3,13 +3,13 @@
     <script>
         function getNumber(number) {
             let numberString = number.toString();
-            //console.log(numberString.length);
+     
             let countEven = 0;
             let countOdd = 0;
 
-            for (let i = 0; i < numberString.length; i++) {
-                let stringNumber = parseInt(numberString[i]);
-                console.log(stringNumber + " " + i);
+            for (let i = 1; i <= numberString.length; i++) {
+                let stringNumber = parseInt(numberString[i-1]);
+                
 
                 if (stringNumber % 2 == 0) {
                   
@@ -17,7 +17,7 @@
                         
                         countEven++;
                     }else{
-                        // console.log(i);
+                        
                         countOdd++;
                     }  
                 }
