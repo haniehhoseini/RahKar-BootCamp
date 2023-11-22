@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <script>
+       function repeatednNumber(numbers) {
+        let countMap = {};
+
+           for (let i = 0; i < numbers.length; i++) {
+                for (let j = 0; j < i; j++) {
+                    if (numbers[j] == numbers[i]) {
+                    
+                        if (countMap[numbers[i]]) {
+                            countMap[numbers[i]]++;
+                        } else {
+                            countMap[numbers[i]] = 2; 
+                        }
+                        break; 
+                
+                    }
+                    
+                }
+            }
+            for (let number in countMap) {
+                console.log(number+ ": " +countMap[number]);
+            }
+
+        }
+        
+       repeatednNumber([1, 2, 3, 7, 5, 1, 7, 8, 9, 7]);
+    </script>
+</html>
