@@ -1,0 +1,24 @@
+<br>
+<div class="container bg-info">
+  <h2 class="font-italic">With Group Form</h2>
+  <br>
+  <form [formGroup]="form">
+      <label class="form-label">Username:</label>
+      <input type="text" class="form-control" formControlName="Username" placeholder="enter username">
+  
+  
+      <label class="form-label">Password:</label>
+      <input type="password" class="form-control" formControlName="Password" placeholder="enter password">
+      
+  </form>
+  <br>
+  <h2>Without Group Form</h2>
+  
+  <label class="form-label">Username:</label>
+  <input type="text" class="form-control" [formControl]="Username" placeholder="enter username">
+  
+  <label class="form-label">Password:</label>
+  <input type="password" class="form-control" [formControl]="Password" placeholder="enter password">
+  <button (click)="onClick()" class="btn btn-success mt-2 mb-3">Submit</button>
+  
+</div> 
