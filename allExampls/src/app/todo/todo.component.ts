@@ -11,7 +11,6 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './todo.component.scss'
 })
 export class TodoComponent {
-
     
   textColor : string = 'blue';
 
@@ -30,18 +29,18 @@ export class TodoComponent {
   }
   OnClick(){
     
-    // this.mylist.emit(this.list);
     this.menuListItem.push(this.list);
     
   }
 
-  deleteTodo(index: number):void {
+  DoTodo(index: number):void {
     this.menuListItem.splice(index, 1);
     this.errorItems.splice(index,1);
   }
 
-  ErrorTodo(index: number):void{
+  UndoTodo(index: number):void{
     this.errorItems[index] = !this.errorItems[index];
+    
   }
 
 }

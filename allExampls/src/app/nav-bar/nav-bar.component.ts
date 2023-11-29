@@ -15,7 +15,7 @@ export class NavBarComponent {
 
   menuItems: any[] = [
     {
-      title: 'Form-with-table',
+      title: 'search in table',
       link: 'navbar/SearchTable',
     },
     {
@@ -25,6 +25,10 @@ export class NavBarComponent {
     {
       title: 'todoList',
       link: 'navbar/ToDo',
+    },
+    {
+      title : 'ArrayForm',
+      link : 'navbar/ArrayForm',
     }
    ]
    onClick(link: string){

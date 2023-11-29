@@ -1,14 +1,17 @@
-<div> 
-    <label>Todo List:</label>  
-    <input (input)= "WriteMyList($event)" placeholder="Type Here...">
-    <button type="button" (click)="OnClick()">Click</button>
+
+<div class="d-flex justify-content-center mt-5">
+    <label for="todolist" class="form-label text-center"> Todo List:</label> 
+</div>
+<div class="container input-group mb-3">
+    <input type="text"  class="form-control"  (input)= "WriteMyList($event)" placeholder="Type Here..."  aria-describedby="button-addon2">
+    <button  (click)="OnClick()" class="btn btn-outline-secondary" type="button" id="button-addon2">Click</button>
 </div>
     
-<ul>
-    <li *ngFor="let item of menuListItem; let i = index">
+<ul class="container list-group">
+    <li *ngFor="let item of menuListItem; let i = index" [style.color]="errorItems[i] ? 'red' : textColor" class="list-group-item d-flex justify-content-between align-items-center">
         <p [class.error]="errorItems[i]">{{ item }}
-        <button (click)="deleteTodo(i)">Do</button>
-        <button (click)="ErrorTodo(i)">Undo</button>
+        <button (click)="DoTodo(i)" class="btn btn-danger btn-sm">Do</button>
+        <button (click)="UndoTodo(i)" class="btn btn-success btn-sm">Undo</button>
         </p>
     </li>
 </ul>
