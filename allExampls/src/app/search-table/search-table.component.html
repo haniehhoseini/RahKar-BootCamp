@@ -20,6 +20,11 @@
         <button (click)="onClick()" class="btn btn-dark mb-3 form-control">Submit</button>
     </form> 
 </div>
+<br>
+<div class="container input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Search</span>
+    <input type="text" class="form-control" placeholder="Enter First Name..." aria-describedby="button-addon2" [(ngModel)]="Searchtext">
+</div>
 <table class="container table table-striped mt-5">
     <thead>
         <tr>
@@ -30,7 +35,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let items of user; let i = index">
+        <tr *ngFor="let items of user | search: Searchtext">
             <td>{{ items.Fname }}</td>
             <td>{{ items.Lname }}</td>
             <td>{{ items.phone }}</td>
@@ -38,3 +43,4 @@
         </tr>
     </tbody>
 </table>
+

@@ -2,12 +2,13 @@ import { Component , EventEmitter ,Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { FormsModule , ReactiveFormsModule  ,FormGroup , FormBuilder} from '@angular/forms';
+import { SearchPipe } from '../search.pipe';
 
 
 @Component({
   selector: 'app-search-table',
   standalone: true,
-  imports: [CommonModule , FormsModule , ReactiveFormsModule ,RouterOutlet , RouterModule],
+  imports: [CommonModule ,SearchPipe, FormsModule , ReactiveFormsModule ,RouterOutlet , RouterModule],
   templateUrl: './search-table.component.html',
   styleUrl: './search-table.component.scss'
 })
@@ -42,4 +43,6 @@ export class SearchTableComponent {
      
     });
   }
+
+  Searchtext = '';
 }

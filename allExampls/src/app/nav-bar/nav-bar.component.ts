@@ -21,6 +21,10 @@ export class NavBarComponent {
     {
       title: 'myBlog',
       link: 'navbar/Blog',
+    },
+    {
+      title: 'todoList',
+      link: 'navbar/ToDo',
     }
    ]
    onClick(link: string){
