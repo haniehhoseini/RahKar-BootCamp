@@ -19,8 +19,8 @@ export class NavBarComponent {
       link: 'navbar/SearchTable',
     },
     {
-      title: 'myBlog',
-      link: 'navbar/Blog',
+      title: 'show account',
+      link: 'navbar/showAccount',
     },
     {
       title: 'todoList',
