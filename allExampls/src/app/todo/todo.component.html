@@ -1,0 +1,15 @@
+<div> 
+    <label>Todo List:</label>  
+    <input (input)= "WriteMyList($event)" placeholder="Type Here...">
+    <button type="button" (click)="OnClick()">Click</button>
+</div>
+    
+<ul>
+    <li *ngFor="let item of menuListItem; let i = index">
+        <p [class.error]="errorItems[i]">{{ item }}
+        <button (click)="deleteTodo(i)">Do</button>
+        <button (click)="ErrorTodo(i)">Undo</button>
+        </p>
+    </li>
+</ul>
+
