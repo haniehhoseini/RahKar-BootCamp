@@ -33,6 +33,10 @@ export class NavBarComponent {
     {
       title : 'My Website',
       link : 'navbar/mywebsite',
+    },
+    {
+      title : 'Abserver',
+      link : 'navbar/abserver',
     }
    ]
    onClick(link: string){
