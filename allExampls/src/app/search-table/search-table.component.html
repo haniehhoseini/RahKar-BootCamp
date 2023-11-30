@@ -32,15 +32,19 @@
           <th>Last Name</th>
           <th>Phone</th>
           <th>Email</th>
+          <th>Delete</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let items of user | search: Searchtext">
+        <tr *ngFor="let items of user | search: Searchtext let i = index">
             <td>{{ items.Fname }}</td>
             <td>{{ items.Lname }}</td>
             <td>{{ items.phone }}</td>
             <td>{{ items.email }}</td>
+            <button (click)="DeleteItem(i)" class="btn btn-danger btn-sm">Delete</button>
+        
         </tr>
     </tbody>
 </table>
+
 

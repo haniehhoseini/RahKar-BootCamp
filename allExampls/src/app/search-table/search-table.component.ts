@@ -44,5 +44,10 @@ export class SearchTableComponent {
     });
   }
 
+  DeleteItem(index: number):void {
+    this.user.splice(index, 1);
+    
+  }
+
   Searchtext = '';
 }
