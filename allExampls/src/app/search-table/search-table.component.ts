@@ -18,16 +18,17 @@ export class SearchTableComponent {
 
   form !:FormGroup;
   user: any[] = [];
+  id: number = 0;
   ngOnInit(): void{
     this.form = this.formBuilder.group({
       Fname: [''],
       Lname: [''],
       phone: [''],
-      email: ['']
+      email: [''],
     });
   }
   
-
+  
   constructor(private formBuilder: FormBuilder){}
 
   onClick(){
@@ -35,13 +36,13 @@ export class SearchTableComponent {
     
     
     this.user.push({
-      
         Fname: this.form.value.Fname,
         Lname: this.form.value.Lname,
         phone: this.form.value.phone,
         email: this.form.value.email
      
     });
+    
   }
 
   DeleteItem(index: number):void {
