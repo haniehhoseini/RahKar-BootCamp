@@ -29,6 +29,10 @@ export class NavBarComponent {
     {
       title : 'ArrayForm',
       link : 'navbar/ArrayForm',
+    },
+    {
+      title : 'My Website',
+      link : 'navbar/mywebsite',
     }
    ]
    onClick(link: string){

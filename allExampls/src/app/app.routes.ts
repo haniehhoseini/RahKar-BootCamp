@@ -5,6 +5,7 @@ import { TodoComponent } from './todo/todo.component';
 import { ArrayFormComponent } from './array-form/array-form.component';
 import { ShowAccountComponent } from './show-account/show-account.component';
 
+
 export const routes: Routes = [
     {
         path:"navbar",
@@ -25,6 +26,11 @@ export const routes: Routes = [
             {
                 path : "ArrayForm",
                 component: ArrayFormComponent,
+            },
+            {
+                path : "mywebsite",
+                loadComponent: () => import ("./mywebsite/mywebsite.component")
+                                             .then((m) => m.MywebsiteComponent)
             }
         ]
     }
