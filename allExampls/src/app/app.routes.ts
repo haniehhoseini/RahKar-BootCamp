@@ -4,7 +4,6 @@ import { SearchTableComponent } from './search-table/search-table.component';
 import { TodoComponent } from './todo/todo.component';
 import { ArrayFormComponent } from './array-form/array-form.component';
 import { ShowAccountComponent } from './show-account/show-account.component';
-import { AbserverComponent } from './abserver/abserver.component';
 
 
 export const routes: Routes = [
@@ -32,10 +31,6 @@ export const routes: Routes = [
                 path : "mywebsite",
                 loadComponent: () => import ("./mywebsite/mywebsite.component")
                                              .then((m) => m.MywebsiteComponent)
-            },
-            {
-                path : "abserver",
-                component : AbserverComponent,
             }
         ]
     }
