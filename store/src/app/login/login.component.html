@@ -1,0 +1,13 @@
+<div class="container bg-light mt-5 w-50">
+    <form [formGroup]="form" class="form-inline">
+        <div class="mb-3 text-center">
+            <label for="Username" class="form-label">Username:</label>
+            <input type="text" class="form-control" formControlName = "Username">
+        </div>
+        <div class="mb-3 text-center">
+            <label for="Password" class="form-label ml-2">Password:</label>
+            <input type="text" class="form-control" formControlName = "Password">
+        </div>
+        <button (click)="onClick()" class="btn btn-dark mb-3 form-control">Submit</button>
+    </form> 
+</div>
