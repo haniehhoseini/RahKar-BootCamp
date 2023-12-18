@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,4 +26,5 @@ export class TelegramService {
     }
     return this.http.post( `https://api.telegram.org/bot6631310582:AAGGU-mjtN45yvl7ELE_lAG7tjAjaXVf7r8/sendPhoto`,data)
   }
+
 }

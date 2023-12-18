@@ -1,0 +1,23 @@
+<section class="">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 vh-100 bg-white">
+            <form [formGroup]="form">
+                <label class="form-label">First:</label>
+                <input type="text" class="form-control" formControlName="gamerFirst">
+                <button (click)="onClick1()" class="btn btn-success mt-2 mb-3">Submit</button>
+            </form>
+        </div>
+        <div class="col-lg-6 vh-100 bg-secondary">
+            <form [formGroup]="form">
+                <label class="form-label">Second:</label>
+                <input type="text" class="form-control" formControlName="gamerSecond">
+                <button (click)="onClick2()" class="btn btn-success mt-2 mb-3">Submit</button>
+
+            </form>
+        </div>
+      </div>
+    </div>
+  
+</section>
