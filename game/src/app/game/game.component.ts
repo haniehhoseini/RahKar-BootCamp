@@ -2,14 +2,13 @@ import { Component , Output , EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet ,Router, RouterModule} from '@angular/router';
 import { FormsModule , FormGroup ,ReactiveFormsModule ,FormControl , FormBuilder} from '@angular/forms';
-import { StartGameComponent } from '../start-game/start-game.component';
 import { GameService } from "../game.service"
 
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, RouterOutlet , FormsModule , ReactiveFormsModule ,RouterModule , StartGameComponent],
+  imports: [CommonModule, RouterOutlet , FormsModule , ReactiveFormsModule ,RouterModule],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })

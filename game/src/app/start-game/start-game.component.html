@@ -1,15 +1,20 @@
-<div class="split left">
-  <div class="centered">
-    <img src="assets/woman.jpg">
-    <h2>Jane Flex</h2>
-    <p>Some text.</p>
-  </div>
-</div>
+<div *ngFor="let items of gamers">
+    <div class="split left">
+      <div class="centered">
+        <img src="assets/woman.jpg">
+        <h2>{{ items.First }}</h2>
+        <p>{{ score1 }}</p>
+      </div>
+    </div>
 
-<div class="split right">
-  <div class="centered">
-    <img src="assets/man.jpg">
-    <h2>John Doe</h2>
-    <p>Some text.</p>
-  </div>
-</div> 
+    <div class="split right">
+      <div class="centered">
+        <img src="assets/man.jpg">
+        <h2>{{ items.Second }}</h2>
+        <p>{{ score2 }}</p>
+      </div>
+    </div>
+  </div> 
+<div class="centered split">
+  <button (click)="play()" type="button" class="btn btn-dark">Play!:)</button>
+</div>
