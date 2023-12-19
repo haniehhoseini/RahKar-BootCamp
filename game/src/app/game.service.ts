@@ -22,4 +22,8 @@ export class GameService {
     getNameOfGamers():Observable<any> {
         return this.http.get('http://localhost:3000/');
     }
+
+    getwiner(winer: any):Observable<any> {
+        return winer;
+    }
 }
