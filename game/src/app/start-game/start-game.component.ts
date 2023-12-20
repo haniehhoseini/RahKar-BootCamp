@@ -36,7 +36,9 @@ export class StartGameComponent implements OnInit {
   }
 
   play(){
+    const img = document.getElementById("img");
     this.count = Math.floor(Math.random() *6)+1;
+    img?.setAttribute("src","assets/"+`${this.count}.jpg`);
     if(this.count >= 1 && this.count <= 3){
       this.score1++;
       if (this.score1 === 5) {
