@@ -3,6 +3,8 @@ import { GameService } from '../game.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet ,Router, RouterModule} from '@angular/router';
+import { winnerService } from '../winner.service';
+
 
 @Component({
   selector: 'app-start-game',
@@ -12,7 +14,7 @@ import { RouterOutlet ,Router, RouterModule} from '@angular/router';
   styleUrl: './start-game.component.scss'
 })
 export class StartGameComponent implements OnInit {
-  constructor(private gameService: GameService , private router:Router){}
+  constructor(private gameService: GameService , private router:Router , private winnerService: winnerService){}
   
   gamers: any = [];
   count: number = 0;
@@ -39,14 +41,26 @@ export class StartGameComponent implements OnInit {
     if(this.count >= 1 && this.count <= 3){
       this.score1++;
       if (this.score1 === 5) {
-        this.router.navigateByUrl('win')
+        const winnerName = this.gamers[0].First; 
+        const loserName = this.gamers[0].Second;
+        this.winnerService.setWinner({
+          winnerName: winnerName,
+          loserName: loserName
+        });
+        this.router.navigateByUrl('win');
       }
     }else{
       this.score2++;
       if (this.score2 === 5) {
-        this.router.navigateByUrl('win')
+        const winnerName = this.gamers[0].Second; 
+        const loserName = this.gamers[0].First;
+        this.winnerService.setWinner({
+          winnerName: winnerName,
+          loserName: loserName
+        });
+        this.router.navigateByUrl('win');
       }
     }
-    
   }
+
 }
