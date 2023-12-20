@@ -1,0 +1,12 @@
+.relative-container {
+    position: relative;
+}
+  
+.overlay {
+    position: absolute;
+    top: 20%;
+    left: 70%;
+    transform: translate(-20%, -20%);
+    text-align: left;
+}
+  
