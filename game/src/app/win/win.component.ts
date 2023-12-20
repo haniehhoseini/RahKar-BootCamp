@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { winnerService } from '../winner.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-win',
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './win.component.scss'
 })
 export class WinComponent {
-  constructor(private winnerService : winnerService){}
+  constructor(private winnerService : winnerService , private router: Router){}
 
   winner : any = [];
   win : any = [];
@@ -24,6 +25,9 @@ export class WinComponent {
       loserName: this.winner.loserName
     });
     
+  }
+  playAgain(){
+    this.router.navigateByUrl('');
   }
 
 }
