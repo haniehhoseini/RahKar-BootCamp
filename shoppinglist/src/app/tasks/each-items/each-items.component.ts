@@ -2,6 +2,7 @@ import { Component , Input , Output , EventEmitter} from '@angular/core';
 import { ITask } from '../typings/task.model';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-each-items',
   standalone: true,
@@ -10,6 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './each-items.component.scss'
 })
 export class EachItemsComponent {
+
   @Input() task!: ITask;
 
   @Output() edited = new EventEmitter();
