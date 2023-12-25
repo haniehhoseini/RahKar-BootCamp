@@ -1,0 +1,17 @@
+<form [formGroup]="taskForm">
+    <div class="form-group mt-5">
+      <label>Enter your Items</label>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="title">
+        <button (click)="Enter()" class="btn btn-outline-dark" type="submit">Enter</button>
+      </div>
+    </div> 
+  </form>
+  <br>
+  <app-each-items
+    *ngFor="let item of taskList"
+    [task]="item"
+    (deleted)="onDeleteTask($event)"
+    (edited)="onEditTask($event)"
+    (done)="onDoneTask($event)">
+  </app-each-items>
