@@ -25,3 +25,8 @@ exports.deleteTask = async (req , res ) =>{
    let items = await ItemsModule.deleteItem(id);
    res.json(items);
 };
+
+exports.doneTask = async (req , res ) =>{
+   let items = await ItemsModule.doneItem(req.params.id);
+   res.json(items);
+};

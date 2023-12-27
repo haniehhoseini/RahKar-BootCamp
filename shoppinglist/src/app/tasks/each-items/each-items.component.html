@@ -1,21 +1,6 @@
-<div class="container">
-    <table class="table table-bordered table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Item</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>{{ task.id }}</td>
-            <td>{{ task.title }}</td>
-            <div class="action">
-                <button (click)="edited.emit(task.id)" type="submit" class="btn btn-outline-primary">Edit</button>
-                <button (click)="deleted.emit(task.id)" type="submit" class="btn btn-outline-danger">Delet</button>
-                <button (click)="done.emit(task.id)" type="submit" class="btn btn-outline-success">Success</button>
-            </div>                 
-        </tr>
-      </tbody>
-    </table>
-</div>
+<p [ngStyle]="{'text-decoration': task.isdone ? 'line-through' : 'none'}"></p>
+<div class="action">
+    <button (click)="edited.emit(task.id)" type="submit" class="btn btn-outline-primary">Edit</button>
+    <button (click)="deleted.emit(task.id)" type="submit" class="btn btn-outline-danger">Delete</button>
+    <button (click)="done.emit(task.id)" type="submit" class="btn btn-outline-success" [disabled]="task.isdone">Success</button>
+</div>                 

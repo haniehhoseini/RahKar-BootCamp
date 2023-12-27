@@ -8,10 +8,25 @@
   </div> 
 </form>
 <br>
-<app-each-items
-  *ngFor="let item of taskList"
-  [task]="item"
-  (deleted)="onDeleteTask($event)"
-  (edited)="onEditTask($event)"
-  (done)="onDoneTask($event)">
-</app-each-items>
+<table class="table table-sm table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Button</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of taskList">
+      <td>{{item.id}}</td>
+      <td [ngStyle]="{'text-decoration': item.isdone ? 'line-through' : 'none'}">{{item.title}}</td>
+      <td>
+        <app-each-items
+          [task]="item"
+          (deleted)="onDeleteTask($event)"
+          (edited)="onEditTask($event)"
+          (done)="onDoneTask($event)">
+        </app-each-items>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -10,14 +10,14 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [CommonModule , FormsModule , ReactiveFormsModule , EachItemsComponent],
+  imports: [CommonModule , FormsModule , ReactiveFormsModule , EachItemsComponent ,FormsModule , ReactiveFormsModule ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss'
 })
 export class MainPageComponent {
   
-
   taskList !: ITask[] ;
+  
 
   fb = inject(FormBuilder)
   constructor(private taskService: TaskService){
@@ -53,7 +53,7 @@ export class MainPageComponent {
   }
   
   onEditTask(id: number){
-    const {title} = this.taskForm.value
+    const {title} = this.taskForm.value as ITaskRequest
     let change = {
       id:id,
       title:title
@@ -61,11 +61,16 @@ export class MainPageComponent {
     
     this.taskService.updateTask(change)
     .subscribe((res) => console.log(res));
+    
     this.allItems();
 
   }
 
   onDoneTask(id: number){
 
+    this.taskService.doneTask(id).subscribe(
+      (res) => console.log(res)
+    );
+    this.allItems();
   }
 }

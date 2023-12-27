@@ -18,7 +18,7 @@ class ItemsModule{
 
     async updateItem(items){
         const { title , id } = items;
-        const query = "update shoppinglist set title = ? where id = ? ";
+        const query = "update shoppinglist set title = ? where id = ?";
         let res = await db.connection.execute(query , [ title ,id ] )
         return res;
     }
@@ -29,6 +29,14 @@ class ItemsModule{
         return res;
     }
 
+    async doneItem(id){
+        const querydone = "select * from shoppinglist where id = ?";
+        let [ isdone ] = await db.connection.execute(querydone , [id]);
+        const query = "update shoppinglist set isdone = ? where id = ?";
+        let res = await db.connection.execute(query ,[!isdone[0].isdone , id ]);
+        return res;
+    }
+    
 }
 
 module.exports = new ItemsModule();

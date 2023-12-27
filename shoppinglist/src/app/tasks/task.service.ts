@@ -34,4 +34,9 @@ export class TaskService{
         
         return this.http.delete(`${this.baseUrl}task/${id}`);
     }
+
+    doneTask(id: number):Observable<ITask[]>{
+
+        return this.http.get<ITask[]>(`${this.baseUrl}task/${id}`);
+    }
 }
