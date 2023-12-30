@@ -47,23 +47,25 @@ export class MainPageComponent {
     this.taskService.deleteTask(id).subscribe(
       (message) => {
         console.log(message ='Task deleted successfully');
+        this.allItems();
       }
     );
-    this.allItems();
   }
   
   onEditTask(id: number){
+    
     const {title} = this.taskForm.value as ITaskRequest
+    
     let change = {
       id:id,
       title:title
     }
     
     this.taskService.updateTask(change)
-    .subscribe((res) => console.log(res));
-    
-    this.allItems();
-
+    .subscribe((res) => {
+      console.log(res);
+      this.allItems();
+    });
   }
 
   onDoneTask(id: number){

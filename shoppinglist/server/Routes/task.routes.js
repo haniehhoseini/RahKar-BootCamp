@@ -7,6 +7,6 @@ router.post('/' , createTask)
       .get('/' , readTask)
       .delete('/:id' , deleteTask)
       .put('/' , updateTask)
-      .get('/:id' , doneTask);;
+      .get('/:id' , doneTask);
 
 module.exports = router;
