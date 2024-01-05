@@ -1,12 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const { createTask , readTask, deleteTask, updateTask , doneTask } = require('../Controller/task.controller');
+const { loginTask , registerTask , wallet } = require('../Controller/task.controller');
 
-router.post('/' , createTask)
-      .get('/' , readTask)
-      .delete('/:id' , deleteTask)
-      .put('/' , updateTask)
-      .get('/:id' , doneTask);
+router.post('/' , loginTask)
+      .post('/reg' , registerTask)
+      .post('/wallet' , wallet);
 
 module.exports = router;

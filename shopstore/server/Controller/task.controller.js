@@ -1,32 +1,19 @@
 const ItemsModule = require('../models/items');
 
 
-exports.createTask = async (req , res ) =>{
-   let items = await ItemsModule.addItem(req.body);
+exports.loginTask = async (req , res ) =>{
+   let items = await ItemsModule.login(req.body);
    res.json(items);
 };
 
-exports.readTask = async (req , res)=>{
-   let tasks = await ItemsModule.readItem();
+exports.registerTask = async (req , res)=>{
+   console.log(req.body);
+   let tasks = await ItemsModule.register(req.body);
    res.json(tasks);
 };
 
-exports.updateTask = async (req , res ) =>{
-   let items = await ItemsModule.updateItem(req.body);
-   res.json(items);
+exports.wallet = async (req , res)=>{
+   let tasks = await ItemsModule.wallet(req.body);
+   res.json(tasks);
 };
 
-exports.deleteTask = async (req , res ) =>{
-   const id = req.params.id;
-   if (id === undefined) {
-      res.status(400).json({ error: 'ID parameter is missing' });
-      return;
-    }
-   let items = await ItemsModule.deleteItem(id);
-   res.json(items);
-};
-
-exports.doneTask = async (req , res ) =>{
-   let items = await ItemsModule.doneItem(req.params.id);
-   res.json(items);
-};

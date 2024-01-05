@@ -1,42 +1,51 @@
 const db = require('../utils/database');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const secret = "Hanieh"
+
 
 class ItemsModule{
 
-    async addItem(items){
-        const { title } = items;
-        console.log(title);
-        const query = "insert into shoppinglist (title) values (?)"; 
-        let res = await db.connection.execute(query ,[ title ] )
-        return res;
+    async exitRegister(user){
+        const { username } = user;
+        const query = "select * from user where username = ?"; 
+        let [res] = await db.connection.execute(query ,[ username ]);
+        if (res.length > 0) {
+            return false;
+        }else{return true;}
     }
 
-    async readItem(){
-        const query = "select * from shoppinglist";
-        let [ list ] = await db.connection.execute(query);
-        return list;
+    async register(items){
+        if (await this.exitRegister(items)) {
+            const { username , password } = items;
+            const query = "insert into user (username , password ) values (? , ? )"; 
+            const hashpassword = await bcrypt.hashSync(password , 10)
+            console.log(hashpassword);
+            let res = await db.connection.execute(query ,[ username , hashpassword ])
+            return res;
+        }else{console.log("user exits");}
+
     }
 
-    async updateItem(items){
-        const { title , id } = items;
-        const query = "update shoppinglist set title = ? where id = ?";
-        let res = await db.connection.execute(query , [ title ,id ] )
-        return res;
+    async login(items){
+        const {username , password } = items;
+        console.log(password);
+        const query = "select password from user where username = ?";
+        let [ list ] = await db.connection.execute(query ,[ username ]);
+        const truePassword = await bcrypt.compareSync(password , list[0].password);
+        if (truePassword) {
+            const token = jwt.sign({ username }, secret , { expiresIn: "1h" });
+            console.log("success");
+            return token;
+        }else {console.log("Invalid credentials")}
     }
 
-    async deleteItem(id){
-        const query = "delete from shoppinglist where id = ?";
-        let res = await db.connection.execute(query ,[ id ]);
+    async wallet(items){
+        const { price } = items;
+        const query = "insert into transaction (amount) values (?)";
+        let res = await db.connection.execute(query ,[ price ])
         return res;
     }
-
-    async doneItem(id){
-        const querydone = "select * from shoppinglist where id = ?";
-        let [ isdone ] = await db.connection.execute(querydone , [id]);
-        const query = "update shoppinglist set isdone = ? where id = ?";
-        let res = await db.connection.execute(query ,[!isdone[0].isdone , id ]);
-        return res;
-    }
-    
 }
 
 module.exports = new ItemsModule();
