@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const { history } = require('../Controller/history.controller');
+const { buy , allPayment } = require('../Controller/history.controller');
 
-router.post('/buy' , history);
+router.post('/buy' , buy)
+      .post('/allPayment', allPayment);
 
 module.exports = router;

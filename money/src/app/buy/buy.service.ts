@@ -17,8 +17,11 @@ export class BuyService{
             amount: nameAndAmount.amount,
             name: nameAndAmount.name
         };
-        console.log(data);
-        
         return this.http.post("http://localhost:5555/api/buy" , data);
+    }
+    history():Observable<any>{
+        console.log(this.userID);
+        
+        return this.http.post("http://localhost:5555/api/allPayment" , this.userID);
     }
 }

@@ -1,7 +1,13 @@
 const history = require('../models/history');
 
 
-exports.history = async (req , res ) =>{
+exports.buy = async (req , res ) =>{
    let items = await history.buy(req.body);
    res.json(items);
 };
+
+exports.allPayment = async (req , res ) =>{
+    let items = await history.allPayment(req.body);
+    console.log(items);
+    res.json(items);
+ };

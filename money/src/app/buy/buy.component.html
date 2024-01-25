@@ -37,31 +37,17 @@
                 <table class="table mb-0">
                     <thead>
                         <tr>
-                            <th class="border-gray-200" scope="col">Transaction ID</th>
-                            <th class="border-gray-200" scope="col">Amount</th>
-                            <th class="border-gray-200" scope="col">Status</th>
+                            <th class="border-gray-200" scope="col">Name</th>
+                            <th class="border-gray-200" scope="col">Pay</th>
+                            <th class="border-gray-200" scope="col">Buy</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>#39201</td>
-                            <td>$29.99</td>
-                            <td><span class="badge bg-light text-dark">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <td>#38594</td>
-                            <td>$29.99</td>
-                            <td><span class="badge bg-success">Paid</span></td>
-                        </tr>
-                        <tr>
-                            <td>#38223</td>
-                            <td>$29.99</td>
-                            <td><span class="badge bg-success">Paid</span></td>
-                        </tr>
-                        <tr>
-                            <td>#38125</td>
-                            <td>$29.99</td>
-                            <td><span class="badge bg-success">Paid</span></td>
+                        <tr *ngFor="let item of history">
+                            <td>{{item.name}}</td>
+                            <td>{{item.buy}}</td>
+                            <td>{{item.pay}}</td>
+                            <!-- <td><span class="badge bg-light text-dark">Pending</span></td> -->
                         </tr>
                     </tbody>
                 </table>
