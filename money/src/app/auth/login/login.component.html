@@ -7,18 +7,20 @@
           <div class="card-body p-5 text-center">
 
             <h3 class="mb-5">Sign in</h3>
+            <form [formGroup]="form">
+              <div class="form-outline mb-4">
+                <input type="email" class="form-control form-control-lg" formControlName="email" />
+                <label class="form-label" for="typeEmailX-2">Email</label>
+              </div>
 
-            <div class="form-outline mb-4">
-              <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
-              <label class="form-label" for="typeEmailX-2">Email</label>
-            </div>
+              <div class="form-outline mb-4">
+                <input type="password" class="form-control form-control-lg" formControlName="password"/>
+                <label class="form-label" for="typePasswordX-2">Password</label>
+              </div>
+            </form>
+            
 
-            <div class="form-outline mb-4">
-              <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-              <label class="form-label" for="typePasswordX-2">Password</label>
-            </div>
-
-            <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+            <button type="button" class="btn btn-primary btn-block mb-4" (click)="login()">Sign in</button>
             <div class="text-center mt-5">
               <p>Not a member? <a href="register">Register</a></p>
             </div>  
