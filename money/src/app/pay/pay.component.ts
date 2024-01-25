@@ -32,4 +32,7 @@ export class PayComponent {
 
     this.payService.pay(this.form.value).subscribe(res =>{})
   }
+  buy(){
+    this.router.navigateByUrl('buy');
+  }
 }
