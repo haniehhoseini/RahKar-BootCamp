@@ -3,6 +3,7 @@ import { FormBuilder, FormsModule , ReactiveFormsModule , FormGroup } from '@ang
 import { Router } from '@angular/router';
 import { authService } from '../auth.service';
 import { PayService } from '../../pay/pay.service';
+import { BuyService } from '../../buy/buy.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { PayService } from '../../pay/pay.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  constructor(private formBuilder:FormBuilder , private router:Router , private authService: authService , private payService:PayService){}
+  constructor(private formBuilder:FormBuilder , private router:Router , private authService: authService , private payService:PayService , private buyService: BuyService){}
 
   form !: FormGroup;
   @Output() enter = new EventEmitter<FormGroup>();
@@ -28,9 +29,10 @@ export class LoginComponent {
 
     this.authService.login(this.form.value).subscribe(res =>{
       this.payService.userID = res.userId;
+      this.buyService.userID = res.userId;
       this.authService.getToken(res.token);
       if(res){
-        this.router.navigateByUrl('pay');
+        this.router.navigateByUrl('buy');
       }
       
     })
