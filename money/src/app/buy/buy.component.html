@@ -45,13 +45,16 @@
                     <tbody>
                         <tr *ngFor="let item of historyBuy">
                             <td>{{item.name}}</td>
-                            <td>{{item.amountOfBuy}}</td>
-                            <!-- <td><span class="badge bg-light text-dark">Pending</span></td> -->
+                            <td>
+                                <img src="./assets/down.png" alt="Top Icon" style="display: block; margin: 0 auto;"/>
+                                {{item.amountOfBuy}}</td>
                         </tr>
                         <tr *ngFor="let item of historyPay">
                             <td> </td>
                             <td> </td>
-                            <td>{{item.amount}}</td>
+                            <td>
+                                <img src="./assets/top.png" alt="Top Icon" style="display: block; margin: 0 auto;"/>
+                                {{item.amount}}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -17,7 +17,11 @@ export class PayComponent {
   constructor(private router: Router , private formBuilder: FormBuilder , private payService: PayService) {}
   form !: FormGroup;
 
+  baghiePol !:any;
   ngOnInit(): void {
+    this.payService.baghiePol().subscribe(res =>{
+      this.baghiePol = res;
+    })
     this.form = this.formBuilder.group({
       amount: ['']
     });

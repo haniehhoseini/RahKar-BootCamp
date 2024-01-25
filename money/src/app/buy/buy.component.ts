@@ -46,6 +46,7 @@ export class BuyComponent {
   buy(){
     this.enter.emit(this.form.value);
     this.buyService.pay(this.form.value).subscribe(res =>{})
+    this.allItems();
   }
 
 }
