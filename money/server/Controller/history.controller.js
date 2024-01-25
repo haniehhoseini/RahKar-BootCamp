@@ -6,8 +6,12 @@ exports.buy = async (req , res ) =>{
    res.json(items);
 };
 
-exports.allPayment = async (req , res ) =>{
-    let items = await history.allPayment(req.body);
-    console.log(items);
+exports.allPaymentBuy = async (req , res ) =>{
+    let items = await history.allPaymentBuy(req.body);
     res.json(items);
- };
+};
+
+exports.allPaymentPay = async (req , res ) =>{
+    let items = await history.allPaymentPay(req.body);
+    res.json(items);
+};

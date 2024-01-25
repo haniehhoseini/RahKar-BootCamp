@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BuyService } from './buy.service';
 import { CommonModule } from '@angular/common';
 import { ITask } from './table.model';
+import { ITaskPay } from './table1.model';
 
 @Component({
   selector: 'app-buy',
@@ -18,7 +19,8 @@ export class BuyComponent {
   constructor(private router: Router , private formBuilder: FormBuilder , private buyService: BuyService) {}
   form !: FormGroup;
 
-  history !: ITask[] ;
+  historyBuy !: ITask[] ;
+  historyPay !: ITaskPay[] ;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -29,8 +31,15 @@ export class BuyComponent {
   }
   
   allItems(){
-    this.buyService.history().subscribe(res =>{
-      this.history = res;
+    this.buyService.historyBuy().subscribe(res =>{
+      this.historyBuy = res;
+      console.log(res);
+      
+    })
+    this.buyService.historyPay().subscribe(res =>{
+      this.historyPay = res;
+      console.log(res);
+      
     })
   }
 

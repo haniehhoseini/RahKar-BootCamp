@@ -38,16 +38,20 @@
                     <thead>
                         <tr>
                             <th class="border-gray-200" scope="col">Name</th>
-                            <th class="border-gray-200" scope="col">Pay</th>
                             <th class="border-gray-200" scope="col">Buy</th>
+                            <th class="border-gray-200" scope="col">Pay</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of history">
+                        <tr *ngFor="let item of historyBuy">
                             <td>{{item.name}}</td>
-                            <td>{{item.buy}}</td>
-                            <td>{{item.pay}}</td>
+                            <td>{{item.amountOfBuy}}</td>
                             <!-- <td><span class="badge bg-light text-dark">Pending</span></td> -->
+                        </tr>
+                        <tr *ngFor="let item of historyPay">
+                            <td> </td>
+                            <td> </td>
+                            <td>{{item.amount}}</td>
                         </tr>
                     </tbody>
                 </table>

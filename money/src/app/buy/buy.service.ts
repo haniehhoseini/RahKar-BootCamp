@@ -19,9 +19,11 @@ export class BuyService{
         };
         return this.http.post("http://localhost:5555/api/buy" , data);
     }
-    history():Observable<any>{
-        console.log(this.userID);
-        
-        return this.http.post("http://localhost:5555/api/allPayment" , this.userID);
+    historyBuy():Observable<any>{
+        return this.http.post("http://localhost:5555/api/allPayment" , { "userID": this.userID });
+    }
+
+    historyPay():Observable<any>{
+        return this.http.post("http://localhost:5555/api/allPaymentPay" , { "userID": this.userID });
     }
 }

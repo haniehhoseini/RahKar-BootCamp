@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const { buy , allPayment } = require('../Controller/history.controller');
+const { buy , allPaymentBuy , allPaymentPay } = require('../Controller/history.controller');
 
 router.post('/buy' , buy)
-      .post('/allPayment', allPayment);
+      .post('/allPayment', allPaymentBuy)
+      .post('/allPaymentPay', allPaymentPay);
 
 module.exports = router;
