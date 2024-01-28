@@ -54,7 +54,6 @@ export class BuyComponent {
   }
   pay(){
     this.router.navigateByUrl('pay');
-    
   }
   register(){
     this.router.navigateByUrl('register');

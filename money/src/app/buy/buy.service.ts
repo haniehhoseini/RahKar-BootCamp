@@ -11,7 +11,6 @@ export class BuyService{
 
     
     pay(data:any):Observable<any>{
-    
         return this.http.post("http://localhost:5555/api/buy" , data);
     }
     historyBuy(data:any):Observable<any>{

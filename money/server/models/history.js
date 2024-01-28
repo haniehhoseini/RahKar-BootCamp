@@ -2,9 +2,11 @@ const db = require('../utils/database');
 
 class history{
     async buy(data){
-        const { amount, userID, name } = data;
+        const { amount, id, name } = data;
+        console.log(id);
+
         const query = "insert into buy (amountOfBuy , id , name ) values (? ,? , ?)"; 
-        let res = await db.connection.execute(query ,[ amount, userID, name ]);
+        let res = await db.connection.execute(query ,[ amount, id, name ]);
         return res;
     }
 
@@ -31,8 +33,18 @@ class history{
         const queryPay = "SELECT SUM(pay.amount) as sumpay FROM pay INNER JOIN auth ON auth.id = pay.id  WHERE auth.id = ?";
         let resBuy = await db.connection.execute(queryBuy, [userID] );
         let resPay = await db.connection.execute(queryPay, [userID] );
-        const baghimandeh = resPay - resBuy;
-        return baghimandeh;
+        const sumbuy = parseFloat(resBuy[0][0].sumbuy);
+        const sumpay = parseFloat(resPay[0][0].sumpay);
+
+        if (!isNaN(sumbuy) && !isNaN(sumpay)) {
+            const baghimandeh = sumpay - sumbuy;
+            console.log(baghimandeh);
+            return baghimandeh;
+        } else {
+            console.log("Error in decimal");
+            return 0;
+        }
+        
     }
 }
 module.exports = new history();

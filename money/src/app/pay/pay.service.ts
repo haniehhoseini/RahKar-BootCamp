@@ -10,10 +10,10 @@ export class PayService{
     http = inject(HttpClient);
 
     pay(data:any):Observable<any>{
-        return this.http.post("http://localhost:5555/api/pay" , data);
+        return this.http.post("http://localhost:5555/api/pay" , { "userID": data });
     }
 
     baghiePol(data:any):Observable<any>{
-        return this.http.post("http://localhost:5555/api/baghiePol", data); 
+        return this.http.post("http://localhost:5555/api/baghiePol", { "userID": data }); 
     }
 }

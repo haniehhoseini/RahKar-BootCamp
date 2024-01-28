@@ -18,20 +18,24 @@ export class PayComponent {
 
   baghiePol !:any;
   ngOnInit(): void {
-    this.payService.baghiePol(this.authService.idDecode.id).subscribe(res =>{
-      this.baghiePol = res;
-    })
+    this.updateOfAmount();
     this.form = this.formBuilder.group({
       id:[0],
       amount: ['']
     });
   }
-  
+  updateOfAmount(){
+    this.payService.baghiePol(this.authService.idDecode.id).subscribe(res =>{
+      this.baghiePol = res;
+      console.log(res);
+    })
+  }
   pay(){
     this.form.patchValue({
       id: this.authService.idDecode.id
     })
     this.payService.pay(this.form.value).subscribe(res =>{})
+    this.updateOfAmount();
   }
   buy(){
     this.router.navigateByUrl('buy');
