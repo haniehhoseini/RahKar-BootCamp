@@ -1,18 +1,32 @@
-.positon{
-    height: 400px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.textarea{
-    margin-top: 100px;
-    width: 700px;
-}
 .title {
     background-color: aquamarine;
-    border-radius: 50px 20px;
+    border-end-end-radius: 20%;
+    border-end-start-radius: 20%;
     height: 200px;
     width: 100%;
 }
+.position{
+    height: 100px;
+    width: 300px;
+    margin-top: 35px;
+    margin-left: 30px;
+    border-radius: 10%;
+}
+textarea{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 480%;
+}
+button{
+    border-radius: 10%;
+    margin-top: 10px;
+    margin-right: auto;
+    width: 150px;
+    color: aliceblue;
+    background-color: rgb(11, 128, 57);
+}
+.center {
+    padding: 70px 0;
+    text-align: center;
+  }
