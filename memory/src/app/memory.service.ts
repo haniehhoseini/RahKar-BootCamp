@@ -10,8 +10,10 @@ export class MemoryService{
     http = inject(HttpClient);
 
     sendtext(data:any):Observable<any>{
-        console.log(data);
-        
         return this.http.post("http://localhost:5555/api/create" , data)
+    }
+
+    readtext():Observable<any>{
+        return this.http.get("http://localhost:5555/api/read")
     }
 }

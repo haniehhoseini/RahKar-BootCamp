@@ -7,13 +7,12 @@ exports.editMemory = async (req , res ) =>{
 };
 
 exports.newMemory = async (req , res)=>{
-   console.log(req.body);
    let tasks = await MemoryModule.newMemory(req.body);
    res.json(tasks);
 };
 
-exports.readMemory = async (res , req)=>{
-   let tasks = await MemoryModule.readMemoryForList(req.body);
+exports.readMemory = async (req , res)=>{
+   let tasks = await MemoryModule.readMemoryForList();
    res.json(tasks);
 }
 

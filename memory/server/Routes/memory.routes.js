@@ -5,7 +5,7 @@ const { editMemory , newMemory, deleteMemory , readMemory} = require('../Control
 
 router.post('/edit' , editMemory)
       .post('/create' , newMemory)
-      .post('/read' , readMemory)
+      .get('/read' , readMemory)
       .post('/delete' , deleteMemory);
 
 module.exports = router;
