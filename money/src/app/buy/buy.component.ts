@@ -1,10 +1,12 @@
-import { Component , Output , EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup , ReactiveFormsModule , FormsModule , FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { BuyService } from './buy.service';
 import { CommonModule } from '@angular/common';
 import { ITask } from './table.model';
 import { ITaskPay } from './table1.model';
+import { authService } from '../auth/auth.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-buy',
@@ -14,9 +16,8 @@ import { ITaskPay } from './table1.model';
   styleUrl: './buy.component.scss'
 })
 export class BuyComponent {
-  @Output() enter = new EventEmitter<FormGroup>();
 
-  constructor(private router: Router , private formBuilder: FormBuilder , private buyService: BuyService) {}
+  constructor(private router: Router , private formBuilder: FormBuilder , private buyService: BuyService , private authService: authService) {}
   form !: FormGroup;
 
   historyBuy !: ITask[] ;
@@ -24,6 +25,7 @@ export class BuyComponent {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
+      id:[0],
       name: [''],
       amount:['']
     });
@@ -31,22 +33,31 @@ export class BuyComponent {
   }
   
   allItems(){
-    this.buyService.historyBuy().subscribe(res =>{
+    const  id  = this.authService.idDecode.id;
+    this.buyService.historyBuy(id).subscribe(res =>{
       this.historyBuy = res;
-      console.log(res);
-      
     })
-    this.buyService.historyPay().subscribe(res =>{
+    this.buyService.historyPay(id).subscribe(res =>{
       this.historyPay = res;
-      console.log(res);
-      
     })
   }
 
   buy(){
-    this.enter.emit(this.form.value);
+    this.router.navigateByUrl('buy');
+    this.form.patchValue({
+      id: this.authService.idDecode.id
+    })
+    console.log(this.authService.idDecode.id);
+    
     this.buyService.pay(this.form.value).subscribe(res =>{})
     this.allItems();
+  }
+  pay(){
+    this.router.navigateByUrl('pay');
+    
+  }
+  register(){
+    this.router.navigateByUrl('register');
   }
 
 }

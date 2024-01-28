@@ -9,17 +9,11 @@ import { Observable } from "rxjs";
 export class PayService{
     http = inject(HttpClient);
 
-    userID !:string ;
-
-    pay(amount:any):Observable<any>{
-        const data = {
-            userID: this.userID, 
-            amount
-        };
+    pay(data:any):Observable<any>{
         return this.http.post("http://localhost:5555/api/pay" , data);
     }
 
-    baghiePol(){
-        return this.http.post("http://localhost:5555/api/baghiePol" , { "userID": this.userID }); 
+    baghiePol(data:any):Observable<any>{
+        return this.http.post("http://localhost:5555/api/baghiePol", data); 
     }
 }

@@ -9,21 +9,16 @@ import { Observable } from "rxjs";
 export class BuyService{
     http = inject(HttpClient);
 
-    userID :string = '';
-
-    pay(nameAndAmount:any):Observable<any>{
-        const data = {
-            userID: this.userID, 
-            amount: nameAndAmount.amount,
-            name: nameAndAmount.name
-        };
+    
+    pay(data:any):Observable<any>{
+    
         return this.http.post("http://localhost:5555/api/buy" , data);
     }
-    historyBuy():Observable<any>{
-        return this.http.post("http://localhost:5555/api/allPayment" , { "userID": this.userID });
+    historyBuy(data:any):Observable<any>{
+        return this.http.post("http://localhost:5555/api/allPayment" , { "userID": data });
     }
 
-    historyPay():Observable<any>{
-        return this.http.post("http://localhost:5555/api/allPaymentPay" , { "userID": this.userID });
+    historyPay(data:any):Observable<any>{
+        return this.http.post("http://localhost:5555/api/allPaymentPay" , { "userID": data });
     }
 }

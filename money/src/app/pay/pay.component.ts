@@ -1,7 +1,8 @@
-import { Component, Output , EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PayService } from './pay.service';
+import { authService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-pay',
@@ -12,24 +13,24 @@ import { PayService } from './pay.service';
 })
 export class PayComponent {
 
-  @Output() enter = new EventEmitter<FormGroup>();
-
-  constructor(private router: Router , private formBuilder: FormBuilder , private payService: PayService) {}
+  constructor(private router: Router , private formBuilder: FormBuilder , private payService: PayService , private authService:authService) {}
   form !: FormGroup;
 
   baghiePol !:any;
   ngOnInit(): void {
-    this.payService.baghiePol().subscribe(res =>{
+    this.payService.baghiePol(this.authService.idDecode.id).subscribe(res =>{
       this.baghiePol = res;
     })
     this.form = this.formBuilder.group({
+      id:[0],
       amount: ['']
     });
   }
   
   pay(){
-    this.enter.emit(this.form.value);
-
+    this.form.patchValue({
+      id: this.authService.idDecode.id
+    })
     this.payService.pay(this.form.value).subscribe(res =>{})
   }
   buy(){

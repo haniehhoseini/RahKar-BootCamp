@@ -1,9 +1,10 @@
-import { Component, Output , EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormsModule , ReactiveFormsModule , FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { authService } from '../auth.service';
 import { PayService } from '../../pay/pay.service';
 import { BuyService } from '../../buy/buy.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -16,25 +17,24 @@ export class LoginComponent {
   constructor(private formBuilder:FormBuilder , private router:Router , private authService: authService , private payService:PayService , private buyService: BuyService){}
 
   form !: FormGroup;
-  @Output() enter = new EventEmitter<FormGroup>();
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
+      id:[0],
       email:[''],
       password:['']
     })
   }
   login(){
-    this.enter.emit(this.form.value);
 
     this.authService.login(this.form.value).subscribe(res =>{
-      this.payService.userID = res.userId;
-      this.buyService.userID = res.userId;
-      this.authService.getToken(res.token);
+      this.authService.getToken(res);
+      this.authService.idDecode = jwtDecode(res);
+      
       if(res){
         this.router.navigateByUrl('buy');
+        
       }
-      
     })
   }
 }

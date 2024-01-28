@@ -29,14 +29,9 @@ class auth{
         let [ list ] = await db.connection.execute(query ,[ email ]);
         const truePassword = await bcrypt.compareSync(password , list[0].password);
         if (truePassword) {
-            const userId = list[0].id;
-            const token = jwt.sign({ email }, secret , { expiresIn: "1h" });
+            const token = jwt.sign({ "email":email , "id":list[0].id }, secret , { expiresIn: "1h" });
             console.log("success");
-            const info = {
-                token,
-                userId
-            }
-            return info;
+            return token;
         }else {console.log("Invalid credentials")}
     }
 }

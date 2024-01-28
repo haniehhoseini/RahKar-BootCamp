@@ -11,11 +11,12 @@ export class authService{
 
     isLogin:boolean = false;
     username:string ='';     
+    idDecode!: any;
 
     private readonly _authStorageToken : string = "authToken";
 
     login(data:any):Observable<any>{
-        return this.http.post("http://localhost:5555/api/login",data , {headers: new HttpHeaders({"Content-Type": "Application/json"})})
+        return this.http.post("http://localhost:5555/api/login",data)
     }
     register(data:any):Observable<any>{
         return this.http.post("http://localhost:5555/api/register",data)
