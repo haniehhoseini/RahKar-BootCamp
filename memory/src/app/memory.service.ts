@@ -12,6 +12,6 @@ export class MemoryService{
     sendtext(data:any):Observable<any>{
         console.log(data);
         
-        return this.http.post("http://localhost:5555/api/form/new" , data, {headers: new HttpHeaders({"Content-Type": "Application/json"})})
+        return this.http.post("http://localhost:5555/api/create" , data)
     }
 }
