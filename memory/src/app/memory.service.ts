@@ -27,4 +27,10 @@ export class MemoryService{
     editText(data:any):Observable<any>{
         return this.http.post("http://localhost:5555/api/edit", data);
     }
+
+    deleteText(data:any):Observable<any>{
+        console.log(data);
+        
+        return this.http.post("http://localhost:5555/api/delete", data);
+    }
 }

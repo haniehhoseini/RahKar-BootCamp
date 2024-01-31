@@ -16,7 +16,7 @@ exports.readMemory = async (req , res)=>{
    res.json(tasks);
 }
 
-exports.deleteMemory = async (res , req)=>{
+exports.deleteMemory = async ( req,res )=>{
    let tasks = await MemoryModule.deleteMemory(req.body);
    res.json(tasks);
 }

@@ -34,8 +34,10 @@ export class SliceTextComponent {
     })
   }
 
-  deleteMemory(){
-
+  deleteMemory(id:any){
+    this.memoryService.deleteText({id}).subscribe(()=>{
+      this.router.navigateByUrl('list');
+    });
   }
 
 }

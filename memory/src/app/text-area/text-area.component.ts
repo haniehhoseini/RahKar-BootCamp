@@ -28,6 +28,7 @@ export class TextAreaComponent {
       console.log(res);
       if(res){
         this.alert = true;
+        this.router.navigateByUrl('textArea');
       }
     });
   }
