@@ -15,6 +15,7 @@ import { MemoryService } from '../memory.service';
 export class TextAreaComponent {
   constructor(private formBuilder:FormBuilder , private memoryService:MemoryService){}
   form !: FormGroup;
+  alert: boolean = false;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -22,7 +23,13 @@ export class TextAreaComponent {
   })
   }
   submit(){
-    this.memoryService.sendtext(this.form.value).subscribe();
+    this.memoryService.sendtext(this.form.value).subscribe(res =>{
+      console.log(res);
+      if(res){
+        this.alert = true;
+      }
+      
+    });
   }
 
 }

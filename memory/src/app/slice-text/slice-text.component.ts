@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MemoryService } from '../memory.service';
 import { CommonModule } from '@angular/common';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-slice-text',
@@ -11,8 +12,9 @@ import { CommonModule } from '@angular/common';
 })
 export class SliceTextComponent {
 
-  constructor(private memoryService:MemoryService) {}
-  sampleData!: string ;
+  constructor(private memoryService:MemoryService , private formBuilder:FormBuilder) {}
+  sampleData !: string[]  ;
+  
 
   ngOnInit(): void {
     this.memoryService.readtext().subscribe(data=>{
