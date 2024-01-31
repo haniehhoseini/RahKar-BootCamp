@@ -8,6 +8,9 @@ import { Observable } from "rxjs";
 
 export class MemoryService{
     http = inject(HttpClient);
+    textMemory : any;
+    textMemoryID : any;
+    textMemoryBool : boolean = false;
 
     sendtext(data:any):Observable<any>{
         return this.http.post("http://localhost:5555/api/create" , data)
@@ -15,5 +18,13 @@ export class MemoryService{
 
     readtext():Observable<any>{
         return this.http.get("http://localhost:5555/api/read")
+    }
+
+    watchText(data:any):Observable<any>{
+        return this.http.post("http://localhost:5555/api/readMemoryWithSpecificID", data);
+    }
+
+    editText(data:any):Observable<any>{
+        return this.http.post("http://localhost:5555/api/edit", data);
     }
 }

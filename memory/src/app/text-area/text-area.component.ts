@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder , ReactiveFormsModule } from '@angular/forms';
 import { MemoryService } from '../memory.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,14 +14,14 @@ import { MemoryService } from '../memory.service';
 })
 
 export class TextAreaComponent {
-  constructor(private formBuilder:FormBuilder , private memoryService:MemoryService){}
+  constructor(private formBuilder:FormBuilder , private memoryService:MemoryService , private router:Router){}
   form !: FormGroup;
   alert: boolean = false;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-    text:['']
-  })
+      text:['']
+    })
   }
   submit(){
     this.memoryService.sendtext(this.form.value).subscribe(res =>{
@@ -28,10 +29,18 @@ export class TextAreaComponent {
       if(res){
         this.alert = true;
       }
-      
     });
   }
   edit(){
+    if (this.memoryService.textMemoryBool) {
+      const dataChanged = {
+        id: this.memoryService.textMemoryID,
+        textMemory: this.form.value.text
+      }
+      this.memoryService.editText(dataChanged).subscribe(() =>{
+        this.router.navigateByUrl('list');
+      });
+    }
     
   }
 

@@ -18,7 +18,14 @@ class MemoryModule{
     async editMemory(items){
         const {id , textMemory } = items;
         const query = "update Memory set textMemory = ? where id =?";
-        let res = await db.connection.execute(query ,[ id , textMemory ]);
+        let res = await db.connection.execute(query ,[ textMemory ,id ]);
+        return res;
+    }
+
+    async readMemoryWithSpecificID(items){
+        const { id } = items;
+        const query = "select textMemory from Memory where id =?";
+        let res = await db.connection.execute(query,[ id ]);
         return res;
     }
 

@@ -11,7 +11,7 @@
         <td>{{ item.id }}</td>
         <td>...........{{ item.textMemory | slice:0:20 }}</td>
         <td>
-          <button type="button" class="btn btn-info" (click)="readMemoryInTextArea()">مشاهده کردن</button>
+          <button type="button" class="btn btn-info" (click)="readMemoryInTextArea(item.id)">مشاهده کردن</button>
         </td>
         <td>
           <button type="button" class="btn btn-danger" (click)="deleteMemory()">حذف کردن</button>

@@ -20,3 +20,8 @@ exports.deleteMemory = async (res , req)=>{
    let tasks = await MemoryModule.deleteMemory(req.body);
    res.json(tasks);
 }
+
+exports.readMemoryWithSpecificID = async (req, res)=>{
+   let tasks = await MemoryModule.readMemoryWithSpecificID(req.body);
+   res.json(tasks);
+}

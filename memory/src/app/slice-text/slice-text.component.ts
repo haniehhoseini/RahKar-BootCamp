@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MemoryService } from '../memory.service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-slice-text',
@@ -12,7 +13,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class SliceTextComponent {
 
-  constructor(private memoryService:MemoryService , private formBuilder:FormBuilder) {}
+  constructor(private memoryService:MemoryService , private router:Router) {}
   data!: any[];
 
   ngOnInit(): void {
@@ -24,12 +25,17 @@ export class SliceTextComponent {
       console.log(this.data);
     })
   }
-  readMemoryInTextArea(){
-
+  readMemoryInTextArea(id:any){
+    this.memoryService.textMemoryID = id;
+    this.memoryService.watchText({id}).subscribe(data =>{
+      this.memoryService.textMemory = data;
+      this.memoryService.textMemoryBool = true;
+      this.router.navigateByUrl('textArea');
+    })
   }
 
   deleteMemory(){
-    
+
   }
 
 }
