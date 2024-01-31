@@ -1,8 +1,18 @@
-<div class="card">
-  <div class="card-body" *ngFor="let text of sampleData">
-    <blockquote class="blockquote mb-0">
-      <p>{{ sampleData | slice:0:20 }}</p>
-    </blockquote>
-  </div>
+<!-- app.component.html -->
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Text Memory</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td>{{ item.id }}</td>
+        <td>...........{{ item.textMemory | slice:0:20 }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-  

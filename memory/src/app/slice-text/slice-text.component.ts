@@ -13,14 +13,16 @@ import { FormBuilder } from '@angular/forms';
 export class SliceTextComponent {
 
   constructor(private memoryService:MemoryService , private formBuilder:FormBuilder) {}
-  sampleData !: string[]  ;
-  
+  data!: any[];
 
   ngOnInit(): void {
+    this.readMemory();
+  }
+  readMemory(){
     this.memoryService.readtext().subscribe(data=>{
-      this.sampleData = data[0][0].textMemory
+      this.data = Array.isArray(data) && data.length === 2 ? data[0] : data;
+      console.log(this.data);
     })
-    
   }
 
 }

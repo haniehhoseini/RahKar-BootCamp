@@ -10,7 +10,7 @@ class MemoryModule{
     }
 
     async readMemoryForList(){
-        const query = "select textMemory from Memory";
+        const query = "select * from Memory";
         let res = await db.connection.execute(query);
         return res;
     }
