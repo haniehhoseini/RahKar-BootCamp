@@ -31,5 +31,8 @@ export class TextAreaComponent {
       
     });
   }
+  edit(){
+    
+  }
 
 }

@@ -16,13 +16,20 @@ export class SliceTextComponent {
   data!: any[];
 
   ngOnInit(): void {
-    this.readMemory();
+    this.readMemoryInTable();
   }
-  readMemory(){
+  readMemoryInTable(){
     this.memoryService.readtext().subscribe(data=>{
       this.data = Array.isArray(data) && data.length === 2 ? data[0] : data;
       console.log(this.data);
     })
+  }
+  readMemoryInTextArea(){
+
+  }
+
+  deleteMemory(){
+    
   }
 
 }
