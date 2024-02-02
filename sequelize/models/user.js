@@ -1,27 +1,22 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require("../utils/database") ;
 
-const Users = sequelize.define('Users', {
+const User = sequelize.define('User', {
   // Model attributes are defined here
   id: {
-    type:DataTypes.INTEGER,
+    allowNull: false,
+    autoIncrement: true,
     primaryKey: true,
-    autoIncrement:true
+    type: DataTypes.INTEGER
   },
-  firstName:{
-    type:DataTypes.STRING,
-    allowNull:false
+  firstName: {
+    type: DataTypes.STRING
   },
-  mobile:{
-    type:DataTypes.STRING,
-    allowNull:false
-  }
+  mobile: {
+    type: DataTypes.STRING
+  },
 }, {
   timestamps:true
 });
 
-
-
-// `sequelize.define` also returns the model
-console.log(Users === sequelize.models.Users); // true
-module.exports = Users;
+module.exports = User;

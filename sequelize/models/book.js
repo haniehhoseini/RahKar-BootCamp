@@ -8,7 +8,7 @@ const Book = sequelize.define('Book', {
     primaryKey: true,
     autoIncrement:true
   },
-  title:{
+  Name:{
     type:DataTypes.STRING,
     allowNull:false
   },

@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const { user , join } = require('../controller/user.controller');
+const { user  } = require('../controller/user.controller');
 
-router.post('/user' , user)
-      .get('/join', join);
+router.post('/user' , user);
 
 module.exports = router;

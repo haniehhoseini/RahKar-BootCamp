@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "my-secret-pw",
-    "database": "sequelize",
+    "database": "sys",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
