@@ -13,7 +13,7 @@ const Upload = sequelize.define('Upload', {
     allowNull:false
   },
   urlPhoto:{
-    type:DataTypes.STRING,
+    type:DataTypes.TEXT,
     allowNull:false
   }
 }, {

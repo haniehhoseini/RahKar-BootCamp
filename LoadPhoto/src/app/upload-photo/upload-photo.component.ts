@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UploadService } from './upload.service';
+import { UploadService } from '../upload.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 

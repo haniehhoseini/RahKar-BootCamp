@@ -12,4 +12,8 @@ export class UploadService {
     SendPhoto(data:any): Observable<any> {
         return this.http.post("http://localhost:3333/api/send", data);
     }
+
+    getPhoto(): Observable<any> {
+        return this.http.get("http://localhost:3333/api/get");
+    }
 }

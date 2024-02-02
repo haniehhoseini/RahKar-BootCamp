@@ -17,4 +17,14 @@ exports.addPhoto = async (req , res) => {
         res.json({message:error} , 400);
 
     }
-  }
+};
+
+exports.sendPhoto = async (req , res) => {
+    try {
+        let data = await upload.findAll();
+        res.json(data, 200);
+        
+    } catch (error) {
+        
+    }
+};
