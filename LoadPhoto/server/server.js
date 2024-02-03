@@ -4,6 +4,11 @@ const multer = require('multer');
 const path = require('path');
 const cors = require('cors');
 
+app.use(express.json());
+
+const SaveRouter = require("./router/saveDatabase.router");
+
+
 app.use(cors());
 
 const storage = multer.diskStorage({
@@ -21,6 +26,8 @@ const upload = multer({ storage: storage });
 app.post('/api/send', upload.single('photo'), (req, res) => {
   res.send('File uploaded successfully!');
 });
+
+app.use("/api", SaveRouter);
 
 const port = 3333;
 

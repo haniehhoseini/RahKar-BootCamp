@@ -15,4 +15,8 @@ export class UploadService {
         return this.http.post("http://localhost:3333/api/send", formData);
     }
 
+    SaveInDatabase(data:any): Observable<any>{
+        return this.http.post("http://localhost:3333/api/save", data);
+    }
+
 }
