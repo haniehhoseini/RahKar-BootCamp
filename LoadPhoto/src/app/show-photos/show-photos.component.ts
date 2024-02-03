@@ -19,11 +19,11 @@ export class ShowPhotosComponent {
   }
   loadImages(): void {
     this.uploadService.GetPhotos().subscribe(
-      (urls) => {
-        this.imageUrls = urls;
-        console.log(urls);
-        
+      (imageNames: string[]) => {
+        this.imageUrls = imageNames.map(imageName => 'http://localhost:3333/photo/' + imageName);
+        console.log(this.imageUrls);
       });
   }
+  
 
 }

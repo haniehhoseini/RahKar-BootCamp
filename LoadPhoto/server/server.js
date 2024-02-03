@@ -28,11 +28,10 @@ app.post('/api/send', upload.single('photo'), (req, res) => {
   res.send('File uploaded successfully!');
 });
 
+app.use('/photo', express.static(path.join(__dirname, 'photo')));
 
-app.use('/images', express.static(path.join(__dirname, 'photo')));
 
 app.get('/api/images', (req, res) => {
-
   const imageFolder = path.join(__dirname, 'photo');
   const imageFiles = fs.readdirSync(imageFolder);
   res.json(imageFiles);

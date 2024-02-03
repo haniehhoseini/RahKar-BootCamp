@@ -21,6 +21,6 @@ export class UploadService {
 
     GetPhotos(): Observable<string[]> {
         return this.http.get<string[]>("http://localhost:3333/api/images");
-      }
+    }
 
 }
