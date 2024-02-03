@@ -9,11 +9,10 @@ import { Observable } from "rxjs";
 export class UploadService {
     http = inject(HttpClient);
 
-    SendPhoto(data:any): Observable<any> {
-        return this.http.post("http://localhost:3333/api/send", data);
+    SendPhoto(file: File): Observable<any> {
+        const formData = new FormData();
+        formData.append('photo', file);
+        return this.http.post("http://localhost:3333/api/send", formData);
     }
 
-    getPhoto(): Observable<any> {
-        return this.http.get("http://localhost:3333/api/get");
-    }
 }

@@ -5,15 +5,15 @@
         <div class="card shadow-2-strong" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
 
-            <h3 class="mb-5">Upload File</h3>
+            <h3 class="mb-5">Upload Photo</h3>
 
             <div class="form-outline mb-4">
               <input type="text" class="form-control" aria-describedby="basic-addon1">
-              <input type="file" class="form-control" id="customFile"/>
+              <input type="file" class="form-control"  (change)="SelectedFile($event)"/>
             </div>
 
-            <button (click)="onUpload()" class="btn btn-dark btn-lg btn-block" type="submit">Upload</button>
-            
+            <button (click)="UploadPhoto()" class="btn btn-dark btn-lg btn-block" type="submit">Upload</button>
+
           </div>
         </div>
       </div>

@@ -16,11 +16,12 @@ export class UploadPhotoComponent {
   selectedFile!: File;
 
 
-  onFileSelected(event: any): void {
+  SelectedFile(event: any){
     this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
   }
 
-  onUpload(): void {
+  UploadPhoto(): void {
     if (this.selectedFile){
       this.uploadService.SendPhoto(this.selectedFile).subscribe(res => {
           console.log('File uploaded successfully:', res);
