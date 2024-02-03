@@ -12,20 +12,20 @@ import { CommonModule } from '@angular/common';
 })
 export class UploadPhotoComponent {
 
-  constructor(private uploadService:UploadService , private formBuilder:FormBuilder){}
-   
-  form !:FormGroup;
-  ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      PhotoName:[''],
-      urlPhoto:['']
-    });
+  constructor(private uploadService:UploadService){}
+  selectedFile!: File;
+
+
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
   }
 
-  SendPhoto(){
-    this.uploadService.SendPhoto(this.form.value).subscribe((res)=>{
-      console.log(res);
-    });
+  onUpload(): void {
+    if (this.selectedFile){
+      this.uploadService.SendPhoto(this.selectedFile).subscribe(res => {
+          console.log('File uploaded successfully:', res);
+        });
+    }
   }
   
 }
